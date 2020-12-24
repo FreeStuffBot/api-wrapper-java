@@ -79,4 +79,12 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub FreeStuffBot Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/freestuffbot/api-wrapper-java</url>
+        </repository>
+    </distributionManagement>
 </project>
