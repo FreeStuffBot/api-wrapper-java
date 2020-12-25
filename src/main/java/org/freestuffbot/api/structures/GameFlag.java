@@ -1,9 +1,5 @@
 package org.freestuffbot.api.structures;
 
-import com.google.gson.annotations.JsonAdapter;
-import org.freestuffbot.api.adapters.GameFlagAdapter;
-
-@JsonAdapter(GameFlagAdapter.class)
 public enum GameFlag {
     /**
      * Low quality game.
