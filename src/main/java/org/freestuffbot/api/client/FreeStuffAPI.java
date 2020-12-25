@@ -1,15 +1,18 @@
 package org.freestuffbot.api.client;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import org.freestuffbot.api.adapters.GameFlagAdapter;
 import org.freestuffbot.api.client.exceptions.FreeStuffException;
 import org.freestuffbot.api.client.structures.GamesCategory;
 import org.freestuffbot.api.client.structures.Service;
 import org.freestuffbot.api.client.structures.ServiceStatus;
 import org.freestuffbot.api.client.structures.events.Event;
+import org.freestuffbot.api.structures.GameFlag;
 import org.freestuffbot.api.structures.GameInfo;
 
 public abstract class FreeStuffAPI {
@@ -22,7 +25,9 @@ public abstract class FreeStuffAPI {
     /**
      * The GSON instance used for serializing and deserializing JSON.
      */
-    protected static final Gson gson = new Gson();
+    protected static final Gson gson = new GsonBuilder()
+            .registerTypeAdapter(GameFlag[].class, new GameFlagAdapter())
+            .create();
 
     /**
      * Whether this is a partner API instance ({@code true}) or a public API instance ({@code false}).
@@ -62,7 +67,7 @@ public abstract class FreeStuffAPI {
      *
      * @return The milliseconds taken for the response to be received.
      */
-    public long ping() throws FreeStuffException {
+    public long ping() throws FreeStuffException, InterruptedException {
         long startType = System.currentTimeMillis();
         request("ping", null, null);
         return System.currentTimeMillis() - startType;
@@ -76,7 +81,7 @@ public abstract class FreeStuffAPI {
      * @param category The category to request.
      * @return The games ids.
      */
-    public int[] getGamesList(GamesCategory category) throws FreeStuffException {
+    public int[] getGamesList(GamesCategory category) throws FreeStuffException, InterruptedException {
         if (category == null) throw new NullPointerException("category is null.");
         return request("games/", category.getSerializedName(), null, int[].class);
     }
@@ -90,7 +95,7 @@ public abstract class FreeStuffAPI {
      * @param gameIds The games ids to request.
      * @return An array of game's info matching the gameIds.
      */
-    public GameInfo[] getGamesInfo(int[] gameIds) throws FreeStuffException {
+    public GameInfo[] getGamesInfo(int[] gameIds) throws FreeStuffException, InterruptedException {
         if (gameIds == null) throw new NullPointerException("gameIds is null.");
         GameInfo[] gameInfo = new GameInfo[gameIds.length];
 
@@ -118,7 +123,7 @@ public abstract class FreeStuffAPI {
      * @param <T>           The type of the additional data about the service.
      * @return The events from received from the server.
      */
-    public <T> Event[] updateServiceStatus(ServiceStatus<T> serviceStatus) throws FreeStuffException {
+    public <T> Event[] updateServiceStatus(ServiceStatus<T> serviceStatus) throws FreeStuffException, InterruptedException {
         return request("status", null, gson.toJson(serviceStatus), Event[].class);
     }
 
@@ -130,7 +135,7 @@ public abstract class FreeStuffAPI {
      * @param analyticsData The analytics data.
      * @param <T>           The type of the analytics data.
      */
-    public <T> void submitGameAnnouncementAnalytics(Service service, String serviceId, int gameId, T analyticsData) throws FreeStuffException {
+    public <T> void submitGameAnnouncementAnalytics(Service service, String serviceId, int gameId, T analyticsData) throws FreeStuffException, InterruptedException {
         ServiceAnalytics<T> analytics = new ServiceAnalytics<>();
 
         analytics.service = service;
@@ -144,25 +149,25 @@ public abstract class FreeStuffAPI {
      * Sends an API request and returns the data element.
      *
      * @param endpoint    The endpoint to use, appended to the baseURL.
-     * @param suffix      A suffix for the endpoint, for passing path parameters without switching the ratelimit bucket.
+     * @param suffix      A suffix for the endpoint, for passing path parameters without switching the rate limit bucket.
      * @param requestBody Serialized JSON data for the request body, can be null for no body.
      * @return The response data element.
      * @throws FreeStuffException on failure.
      */
-    protected abstract JsonElement request(String endpoint, String suffix, String requestBody) throws FreeStuffException;
+    protected abstract JsonElement request(String endpoint, String suffix, String requestBody) throws FreeStuffException, InterruptedException;
 
     /**
      * Sends an API request and decodes the response data.
      *
      * @param endpoint    The endpoint to use, appended to the baseURL.
-     * @param suffix      A suffix for the endpoint, for passing path parameters without switching the ratelimit bucket.
+     * @param suffix      A suffix for the endpoint, for passing path parameters without switching the rate limit bucket.
      * @param requestBody Serialized JSON data for the request body, can be null for no body.
      * @param type        The type of the response body.
      * @param <T>         The type of the response body.
      * @return The response body.
      * @throws FreeStuffException on failure.
      */
-    protected <T> T request(String endpoint, String suffix, String requestBody, Class<T> type) throws FreeStuffException {
+    protected <T> T request(String endpoint, String suffix, String requestBody, Class<T> type) throws FreeStuffException, InterruptedException {
         JsonElement responseElement = request(endpoint, suffix, requestBody);
         return gson.fromJson(responseElement, TypeToken.get(type).getType());
     }
