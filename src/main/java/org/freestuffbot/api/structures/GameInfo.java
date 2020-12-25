@@ -66,12 +66,4 @@ public class GameInfo {
     @SerializedName("store_meta")
     public StoreMeta storeMeta;
 
-    /**
-     * Represents the meta information of a game.
-     */
-    public static class StoreMeta {
-        //Empty if store != "steam". Contains subids divided by a space otherwise.
-        @SerializedName("steam_subids")
-        public String steamSubIDs;
-    }
 }
