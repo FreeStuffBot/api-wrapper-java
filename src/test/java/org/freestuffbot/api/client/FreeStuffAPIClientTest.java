@@ -14,16 +14,16 @@ public class FreeStuffAPIClientTest {
     void ioException() {
         FreeStuffAPIClient client = new FreeStuffAPIClient("FAKE_TOKEN");
         client.client = new FaultyIOHttpClient();
-        assertThrows(FreeStuffException.class, client::ping, "IOException: Faulty HttpClient.");
+        assertThrows(FreeStuffException.class, client::ping);
     }
 
     @Test
     void unauthorized() {
         FreeStuffAPI basicAPI = createFakeClient("DONT_AUTHORIZE");
-        assertThrows(FreeStuffException.class, basicAPI::ping, "Forbidden: Authorization invalid.");
+        assertThrows(FreeStuffException.class, basicAPI::ping);
 
-        FreeStuffAPI partnerAPI = createFakeClient("DONT_AUHTORIZE", "DONT_AUTHORIZE");
-        assertThrows(FreeStuffException.class, partnerAPI::ping, "Forbidden: Authorization invalid.");
+        FreeStuffAPI partnerAPI = createFakeClient("DONT_AUTHORIZE", "DONT_AUTHORIZE");
+        assertThrows(FreeStuffException.class, partnerAPI::ping);
     }
 
     @Test
