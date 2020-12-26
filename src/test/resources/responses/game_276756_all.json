@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "276756": {
+      "_id": 276756,
+      "uuid": "custom:276756",
+      "published": 1608912768,
+      "responsible": "171675309177831424",
+      "status": "approved",
+      "analytics": {
+        "discord": {
+          "reach": 18386,
+          "clicks": 0
+        },
+        "telegram": {
+          "reach": {
+            "users": 0,
+            "groups": 0,
+            "supergroups": 0,
+            "groupUsers": 0,
+            "channels": 0,
+            "channelUsers": 0
+          },
+          "clicks": 0
+        }
+      },
+      "info": {
+        "title": "Darkest Dungeon",
+        "org_url": "https://www.epicgames.com/store/en-US/product/darkest-dungeon",
+        "org_price": {
+          "euro": "22.99",
+          "dollar": "22.99"
+        },
+        "price": {
+          "euro": 0,
+          "dollar": 0
+        },
+        "thumbnail": "https://cdn2.unrealengine.com/egs-darkestdungeon-redhookstudios-ic1-400x229-965fcc6903ad.png",
+        "store_meta": {
+          "steam_subids": ""
+        },
+        "store": "epic",
+        "flags": 0,
+        "until": 1608998400,
+        "type": "free"
+      }
+    }
+  }
+}

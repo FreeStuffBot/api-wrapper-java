@@ -1,0 +1,74 @@
+{
+  "success": true,
+  "data": {
+    "30979": {
+      "discord": {
+        "reach": 18217,
+        "clicks": 0
+      },
+      "telegram": {
+        "reach": {
+          "users": 0,
+          "groups": 0,
+          "supergroups": 0,
+          "groupUsers": 0,
+          "channels": 0,
+          "channelUsers": 0
+        },
+        "clicks": 0
+      }
+    },
+    "276756": {
+      "discord": {
+        "reach": 18386,
+        "clicks": 0
+      },
+      "telegram": {
+        "reach": {
+          "users": 0,
+          "groups": 0,
+          "supergroups": 0,
+          "groupUsers": 0,
+          "channels": 0,
+          "channelUsers": 0
+        },
+        "clicks": 0
+      }
+    },
+    "320412": null,
+    "578572": {
+      "discord": {
+        "reach": 0,
+        "clicks": 0
+      },
+      "telegram": {
+        "reach": {
+          "users": 0,
+          "groups": 0,
+          "supergroups": 0,
+          "groupUsers": 0,
+          "channels": 0,
+          "channelUsers": 0
+        },
+        "clicks": 0
+      }
+    },
+    "696742": {
+      "discord": {
+        "reach": 0,
+        "clicks": 0
+      },
+      "telegram": {
+        "reach": {
+          "users": 0,
+          "groups": 0,
+          "supergroups": 0,
+          "groupUsers": 0,
+          "channels": 0,
+          "channelUsers": 0
+        },
+        "clicks": 0
+      }
+    }
+  }
+}

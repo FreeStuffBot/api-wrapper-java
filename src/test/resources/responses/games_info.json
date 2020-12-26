@@ -1,0 +1,86 @@
+{
+  "success": true,
+  "data": {
+    "30979": {
+      "title": "INSIDE",
+      "org_url": "https://www.epicgames.com/store/en-US/product/inside/home",
+      "org_price": {
+        "euro": "15.99",
+        "dollar": "19.99"
+      },
+      "price": {
+        "euro": 0,
+        "dollar": 0
+      },
+      "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/304430/header.jpg?t=1605518780",
+      "store_meta": {
+        "steam_subids": ""
+      },
+      "store": "epic",
+      "flags": 0,
+      "until": 1608912000,
+      "type": "free"
+    },
+    "276756": {
+      "title": "Darkest Dungeon",
+      "org_url": "https://www.epicgames.com/store/en-US/product/darkest-dungeon",
+      "org_price": {
+        "euro": "22.99",
+        "dollar": "22.99"
+      },
+      "price": {
+        "euro": 0,
+        "dollar": 0
+      },
+      "thumbnail": "https://cdn2.unrealengine.com/egs-darkestdungeon-redhookstudios-ic1-400x229-965fcc6903ad.png",
+      "store_meta": {
+        "steam_subids": ""
+      },
+      "store": "epic",
+      "flags": 0,
+      "until": 1608998400,
+      "type": "free"
+    },
+    "320412": null,
+    "578572": {
+      "title": "Unknown",
+      "org_url": "",
+      "org_price": {
+        "euro": 0,
+        "dollar": 0
+      },
+      "price": {
+        "euro": 0,
+        "dollar": 0
+      },
+      "thumbnail": "",
+      "store_meta": {
+        "steam_subids": ""
+      },
+      "store": "other",
+      "flags": 0,
+      "until": 0,
+      "type": "unknown"
+    },
+    "696742": {
+      "title": "Unknown",
+      "org_url": "",
+      "org_price": {
+        "euro": 0,
+        "dollar": 0
+      },
+      "price": {
+        "euro": 0,
+        "dollar": 0
+      },
+      "thumbnail": "",
+      "store_meta": {
+        "steam_subids": ""
+      },
+      "store": "other",
+      "flags": 0,
+      "until": 0,
+      "type": "unknown"
+    }
+  }
+}

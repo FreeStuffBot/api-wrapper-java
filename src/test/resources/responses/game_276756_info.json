@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "data": {
+    "276756": {
+      "title": "Darkest Dungeon",
+      "org_url": "https://www.epicgames.com/store/en-US/product/darkest-dungeon",
+      "org_price": {
+        "euro": "22.99",
+        "dollar": "22.99"
+      },
+      "price": {
+        "euro": 0,
+        "dollar": 0
+      },
+      "thumbnail": "https://cdn2.unrealengine.com/egs-darkestdungeon-redhookstudios-ic1-400x229-965fcc6903ad.png",
+      "store_meta": {
+        "steam_subids": ""
+      },
+      "store": "epic",
+      "flags": 0,
+      "until": 1608998400,
+      "type": "free"
+    }
+  }
+}

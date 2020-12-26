@@ -1,0 +1,5 @@
+{
+  "success": false,
+  "error": "Rate-Limited",
+  "message": "Too many requests, please try again later."
+}
